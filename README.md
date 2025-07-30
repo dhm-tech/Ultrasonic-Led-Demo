@@ -114,7 +114,7 @@ void loop() {
 ---
 
 ## 📸 Demo Media
-https://github.com/user-attachments/assets/ultrasonic-led-demo.gif
+https://github.com/user-attachments/assets/19c90e57-7f8d-44a5-8801-0cd1f6bcc9ac
 
 ---
 
