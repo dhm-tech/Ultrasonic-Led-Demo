@@ -48,34 +48,37 @@ Perfect for beginners exploring sensor input and conditional output with Arduino
    - LED4 for 28cm
 
 ```cpp
-const int trig = 12;
+const int trig = 12;   
 const int echo = 11;
 const int LED1 = 7;
 const int LED2 = 6;
 const int LED3 = 5;
 const int LED4 = 4;
-int duration = 0;
-int distance = 0;
+
+long duration;
+int distance;
 
 void setup() {
-  pinMode(trig , OUTPUT);
-  pinMode(echo , INPUT);
-  pinMode(LED1 , OUTPUT);
-  pinMode(LED2 , OUTPUT);
-  pinMode(LED3 , OUTPUT);
-  pinMode(LED4 , OUTPUT);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(trig , LOW);
+  digitalWrite(trig, LOW);
   delayMicroseconds(2);
-  digitalWrite(trig , HIGH);
+  digitalWrite(trig, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trig , LOW);
+  digitalWrite(trig, LOW);
 
-  duration = pulseIn(echo , HIGH);
-  distance = (duration * 0.034 / 2);
+  duration = pulseIn(echo, HIGH);
+  distance = duration * 0.034 / 2;
+
+  Serial.print("Distance: ");
   Serial.println(distance);
 
   digitalWrite(LED1, distance <= 7 ? HIGH : LOW);
